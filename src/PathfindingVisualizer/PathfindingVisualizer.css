@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.pathfindingVisualizer {
+  min-width: 100%;
+  max-width: 100%;
+}
+.top{
+  font-size: 40px;
+  font-family: 'Lobster', cursive;
+  color:palegreen;
+  cursor: pointer
+  
+}
+
+.pathfindingVisualizer .container {
+  min-width: 100%;
+  max-width: 100%;
+  padding: auto;
+
+  color: #fff;
+  background-color: rgb(107, 5, 196);
+}
+
+.controlbox {
+  line-height: 20px;
+
+  display: flex;
+
+  padding: 10px;
+
+  justify-content: space-around;
+}
+
+.controlbox input {
+  height: 20px;
+
+  text-align: center;
+
+  color: black;
+  font-weight: bolder;
+  background-color: cornsilk;
+  border: 4px solid black;
+  border-radius: 10px;
+}
+
+.algo{
+  position: absolute;
+  right:60px;
+  top:0px;
+  
+}
+
+.visualGridContainer .gridBox {
+  min-width: 80%;
+  max-width: 80%;
+  margin: 5px auto;
+
+  border: 11px solid brown;
+  border-radius: 14px;
+}
+
+.controlbox .weightContainer button {
+  font-size: 12px;
+  font-weight: bolder;
+
+  /* position: relative; */
+
+  width: 60px;
+  margin-left: 6px;
+  padding: 5px 10px;
+
+  color: #fff;
+  border-color: #48c9b0;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: #4ac948;
+}
+
+.controlbox .weightContainer button:hover {
+  color: #000;
+}
+
+.controlbox .startPointContainer {
+  font-weight: 500;
+}
+
+.controlbox .endPointContainer {
+  font-weight: 500;
+}
+
+
+.buttonContainer
+{
+    font-size: 12px;
+    font-weight: 500;
+
+    position: relative;
+
+    margin-left: 6px;
+    padding: 5px 10px 5px 10px;
+
+    cursor: pointer;
+    transition-duration: .8s;
+
+    color: #fff;
+    border-color: #48c9b0;
+    border-radius: 5px;
+    background-color: #c94848;
+}
+
+.container p {
+  background-color: yellowgreen;
+  border: 4px solid black;
+  border-radius: 12px;
+  width: 900px;
+  font-size: 20px;
+  margin-left: 280px;
+  overflow: hidden;
+}
+
+.grid {
+  border-spacing: 0;
+}
+
