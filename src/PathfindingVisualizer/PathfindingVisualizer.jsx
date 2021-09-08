@@ -6,7 +6,7 @@ import { showPopUp } from "./Tutorial/Tutorial.jsx";
 
 import './PathfindingVisualizer.css';
 
-import { dijkstra, get_The_shortest_path } from "../graphAlgorithm/dijkstra";
+import { bfs, get_The_shortest_path } from "../graphAlgorithm/Bfs";
 
 let row_max_len = 20;
 let col_max_len = 50;
@@ -34,7 +34,7 @@ export default class PathfindingVisualizer extends Component {
         this.state = {
             grid: [],
             mouseIspressed: false,
-            algoName: "Dijkstra Algorithm",
+            algoName: "BREADTH FIRST ALGORITHM",
             weight: 1,
             changeweight: false,
             distactTobetraveled: 0
@@ -108,22 +108,22 @@ export default class PathfindingVisualizer extends Component {
     };
 
 
-    VisulaizerDijksra() {
+    VisulaizerBfs() {
         const {
             grid
         } = this.state;
         const startNode = grid[Start_Node_Row][Start_Node_Col];
         const EndNode = grid[Final_Node_Row][Final_Node_Col];
-        console.log(startNode, EndNode);
-        const Order_of_Visisted_nodes = dijkstra(grid, startNode, EndNode);
-        console.log(Order_of_Visisted_nodes[0], "ko");
+        // console.log(startNode, EndNode);
+        const Order_of_Visisted_nodes = bfs(grid, startNode, EndNode);
+        // console.log(Order_of_Visisted_nodes[0], "ko");
         const shortest_path = get_The_shortest_path(EndNode);
-        this.AnimateDijstra(Order_of_Visisted_nodes, shortest_path);
+        this.AnimateBfs(Order_of_Visisted_nodes, shortest_path);
 
     }
 
 
-    AnimateDijstra(Order_of_Visisted_nodes, shortest_path) {
+    AnimateBfs(Order_of_Visisted_nodes, shortest_path) {
         // console.log(this.state.grid[Start_Node_Row - 1][Start_Node_Col + 1], this.state.grid[Start_Node_Row - 1][Start_Node_Col + 2]);
         // console.log(this.state.grid[Start_Node_Row + 1][Start_Node_Col + 1]);
         for (let i = 1; i <= Order_of_Visisted_nodes.length; i++) {
@@ -141,7 +141,9 @@ export default class PathfindingVisualizer extends Component {
             setTimeout(() => {
                 const node = Order_of_Visisted_nodes[i];
                 if (node.isWeight) {
-                    let Weighted_node = document.getElementById(`node-${node.row}-${node.col}`);
+                    // The Document method getElementById() returns an Element object representing the element whose id property matches the specified string
+                    // let Weighted_node = document.getElementById(`node-${node.row}-${node.col}`);
+                    let Weighted_node = node
                     Weighted_node.className = "node node-visitedWeight";
                 }
                 else {
@@ -168,9 +170,7 @@ export default class PathfindingVisualizer extends Component {
         }
         // console.log(this.state.grid[9][31]);
         time_taken = shortest_path[shortest_path.length - 1].distance;
-        setTimeout(() => {
-            alert(`time taken is${time_taken}`);
-        }, 70 * shortest_path.length);
+
 
     }
 
@@ -250,7 +250,7 @@ export default class PathfindingVisualizer extends Component {
         } = this.state;
 
         let play_btn = (
-            <h3 className='btn' onClick={() => this.VisulaizerDijksra()}>Start Dijkstra Algorithm</h3>
+            <h3 className='btn' onClick={() => this.VisulaizerBfs()}>Start BFS</h3>
         );
 
         // bnt change to true or false
@@ -309,7 +309,7 @@ export default class PathfindingVisualizer extends Component {
                         <h2 className="algo">{algoName}</h2>
                     </header>
                     {ControlBox}
-                    <p>Dijkstra’s Algorithm is used for finding the shortest distance, or path, from starting node to target node in a weighted path  </p>
+                    <p>Breadth first algorithm is used for finding the shortest distance, or path, from starting node to any other node in a unweighted path  </p>
 
                 </div>
 
@@ -339,6 +339,7 @@ export default class PathfindingVisualizer extends Component {
                                                             isWall={isWall}
                                                             isWeight={isWeight}
                                                             mouseIspressed={mouseIspressed}
+                                                            //attribute onMouseDown and onMouseEnterin reactjs
                                                             onMouseDown={(row, col) =>
                                                                 this.WhenMouseDown(row, col)
                                                             }

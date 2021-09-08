@@ -42,19 +42,19 @@ export class Tutorial extends Component {
                         <label htmlFor="end">End : </label>
                         <img src={end} name="end" alt="" />
 
-                        <label htmlFor="wall">Tree : </label>
+                        <label htmlFor="wall">Wall : </label>
                         <img src={wall} name="wall" alt="" />
 
                         {/* <label htmlFor="wall">Visited Node : </label>
                         <div style={{ backgroundColor: 'rgba(0, 190, 218, 0.75)' }} name="wall"></div> */}
 
-                        <label htmlFor="weight">food : </label>
+                        <label htmlFor="weight">Traffic : </label>
                         <img src={weight} name="weight" alt="" />
 
-                        <label htmlFor="visitedWeight">food eaten : </label>
+                        <label htmlFor="visitedWeight">Visited Traffic : </label>
                         <img src={visitedWeight} name="visitedWeight" alt="" />
 
-                        <label htmlFor="pathWeight">food on Path : </label>
+                        <label htmlFor="pathWeight">Traffic Path : </label>
                         <img src={pathWeight} name="pathWeight" alt="" />
 
                     </div>
